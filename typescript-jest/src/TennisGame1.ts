@@ -3,12 +3,8 @@ import { TennisGame } from './TennisGame';
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
   private m_score2: number = 0;
-  private player1Name: string;
-  private player2Name: string;
 
   constructor(player1Name: string, player2Name: string) {
-    this.player1Name = player1Name;
-    this.player2Name = player2Name;
   }
 
   wonPoint(playerName: string): void {
