@@ -1,12 +1,12 @@
 import { TennisGame } from './TennisGame';
 
 export class TennisGame1 implements TennisGame {
-  private m_score1: number = 0;
+  private firstPlayerScore: number = 0;
   private m_score2: number = 0;
 
   wonPoint(playerName: string): void {
     if (playerName === 'player1')
-      this.m_score1 += 1;
+      this.firstPlayerScore += 1;
     else
       this.m_score2 += 1;
   }
@@ -14,8 +14,8 @@ export class TennisGame1 implements TennisGame {
   getScore(): string {
     let score: string = '';
     let tempScore: number = 0;
-    if (this.m_score1 === this.m_score2) {
-      switch (this.m_score1) {
+    if (this.firstPlayerScore === this.m_score2) {
+      switch (this.firstPlayerScore) {
         case 0:
           score = 'Love-All';
           break;
@@ -31,8 +31,8 @@ export class TennisGame1 implements TennisGame {
 
       }
     }
-    else if (this.m_score1 >= 4 || this.m_score2 >= 4) {
-      const minusResult: number = this.m_score1 - this.m_score2;
+    else if (this.firstPlayerScore >= 4 || this.m_score2 >= 4) {
+      const minusResult: number = this.firstPlayerScore - this.m_score2;
       if (minusResult === 1) score = 'Advantage player1';
       else if (minusResult === -1) score = 'Advantage player2';
       else if (minusResult >= 2) score = 'Win for player1';
@@ -40,7 +40,7 @@ export class TennisGame1 implements TennisGame {
     }
     else {
       for (let i = 1; i < 3; i++) {
-        if (i === 1) tempScore = this.m_score1;
+        if (i === 1) tempScore = this.firstPlayerScore;
         else { score += '-'; tempScore = this.m_score2; }
         switch (tempScore) {
           case 0:
