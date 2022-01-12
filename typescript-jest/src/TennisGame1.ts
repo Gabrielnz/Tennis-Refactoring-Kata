@@ -48,16 +48,11 @@ export class TennisGame1 implements TennisGame {
   }
 
   private getScoreNameWhenPlayersHaveSameScore() {
-    switch (this.firstPlayerScore) {
-      case 0:
-        return 'Love-All';
-      case 1:
-        return 'Fifteen-All';
-      case 2:
-        return 'Thirty-All';
-      default:
-        return 'Deuce';
+    const scores = ['Love-All', 'Fifteen-All', 'Thirty-All'];
+    if (this.firstPlayerScore <= 2) {
+      return scores[this.firstPlayerScore]
     }
+    return 'Deuce'
   }
 
   private isThereAnyPlayerWithFourOrMorePoints() {
