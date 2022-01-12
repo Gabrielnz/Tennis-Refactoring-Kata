@@ -20,13 +20,10 @@ export class TennisGame1 implements TennisGame {
       score = this.getScoreWhenAPlayerHasFourOrMorePoints();
     }
     else {
-      let tempScore: number = 0;
       const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-      tempScore = this.firstPlayerScore;
-      score += scoreNames[tempScore];
+      score += scoreNames[this.firstPlayerScore];
       score += '-';
-      tempScore = this.secondPlayerScore;
-      score += scoreNames[tempScore];
+      score += scoreNames[this.secondPlayerScore];
     }
     return score;
   }
