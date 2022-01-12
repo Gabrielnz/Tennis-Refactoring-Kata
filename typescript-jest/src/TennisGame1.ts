@@ -27,20 +27,8 @@ export class TennisGame1 implements TennisGame {
           score += '-';
           tempScore = this.secondPlayerScore;
         }
-        switch (tempScore) {
-          case 0:
-            score += 'Love';
-            break;
-          case 1:
-            score += 'Fifteen';
-            break;
-          case 2:
-            score += 'Thirty';
-            break;
-          case 3:
-            score += 'Forty';
-            break;
-        }
+        const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+        score += scoreNames[tempScore];
       }
     }
     return score;
