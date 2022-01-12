@@ -21,15 +21,12 @@ export class TennisGame1 implements TennisGame {
     }
     else {
       let tempScore: number = 0;
-      for (let i = 1; i < 3; i++) {
-        if (i === 1) tempScore = this.firstPlayerScore;
-        else {
-          score += '-';
-          tempScore = this.secondPlayerScore;
-        }
-        const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-        score += scoreNames[tempScore];
-      }
+      const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+      tempScore = this.firstPlayerScore;
+      score += scoreNames[tempScore];
+      score += '-';
+      tempScore = this.secondPlayerScore;
+      score += scoreNames[tempScore];
     }
     return score;
   }
