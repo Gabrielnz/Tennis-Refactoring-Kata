@@ -51,17 +51,12 @@ export class TennisGame1 implements TennisGame {
     switch (this.firstPlayerScore) {
       case 0:
         return 'Love-All';
-        break;
       case 1:
         return 'Fifteen-All';
-        break;
       case 2:
         return 'Thirty-All';
-        break;
       default:
         return 'Deuce';
-        break;
-
     }
   }
 
