@@ -16,7 +16,7 @@ export class TennisGame1 implements TennisGame {
     if (this.playersPointsAreTheSame()) {
       return this.getScoreWhenPlayersHaveSamePoints();
     } else {
-      if (this.isThereAnyPlayerWithFourOrMorePoints()) {
+      if (this.isThereAPlayerWithFourOrMorePoints()) {
         return this.getScoreWhenAPlayerHasFourOrMorePoints();
       }
       return `${this.scoreNames[this.firstPlayerScore]}-${this.scoreNames[this.secondPlayerScore]}`;
@@ -42,7 +42,7 @@ export class TennisGame1 implements TennisGame {
     return 'Deuce'
   }
 
-  private isThereAnyPlayerWithFourOrMorePoints() {
+  private isThereAPlayerWithFourOrMorePoints() {
     return this.firstPlayerScore >= 4 || this.secondPlayerScore >= 4;
   }
 
