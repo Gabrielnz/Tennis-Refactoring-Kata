@@ -13,17 +13,15 @@ export class TennisGame1 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string = '';
     if (this.playersPointsAreTheSame()) {
-      score = this.getScoreWhenPlayersHaveSamePoints();
+      return this.getScoreWhenPlayersHaveSamePoints();
     }
     else if (this.isThereAnyPlayerWithFourOrMorePoints()) {
-      score = this.getScoreWhenAPlayerHasFourOrMorePoints();
+      return this.getScoreWhenAPlayerHasFourOrMorePoints();
     }
     else {
-      score += `${this.scoreNames[this.firstPlayerScore]}-${this.scoreNames[this.secondPlayerScore]}`;
+      return `${this.scoreNames[this.firstPlayerScore]}-${this.scoreNames[this.secondPlayerScore]}`;
     }
-    return score;
   }
 
   private getScoreWhenAPlayerHasFourOrMorePoints() {
