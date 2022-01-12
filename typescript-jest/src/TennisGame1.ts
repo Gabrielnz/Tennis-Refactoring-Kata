@@ -39,9 +39,8 @@ export class TennisGame1 implements TennisGame {
   }
 
   private getScoreWhenPlayersHaveSamePoints() {
-    const scores = ['Love-All', 'Fifteen-All', 'Thirty-All'];
     if (this.firstPlayerScore <= 2) {
-      return scores[this.firstPlayerScore]
+      return `${this.scoreNames[this.firstPlayerScore]}-All`;
     }
     return 'Deuce'
   }
