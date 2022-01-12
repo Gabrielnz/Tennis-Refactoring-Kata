@@ -51,7 +51,7 @@ export class TennisGame1 implements TennisGame {
       return 'Advantage player2';
     else if (minusResult >= 2)
       return 'Win for player1';
-    else
+    
       return 'Win for player2';
   }
 
