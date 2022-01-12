@@ -17,7 +17,7 @@ export class TennisGame1 implements TennisGame {
       score = this.getScoreNameWhenPlayersHaveSameScore();
     }
     else if (this.isThereAnyPlayerWithFourOrMorePoints()) {
-      score = this.getScoreNameWhenAPlayerHasFourOrMorePoints(score);
+      score = this.getScoreNameWhenAPlayerHasFourOrMorePoints();
     }
     else {
       let tempScore: number = 0;
@@ -43,17 +43,16 @@ export class TennisGame1 implements TennisGame {
     return score;
   }
 
-  private getScoreNameWhenAPlayerHasFourOrMorePoints(score: string) {
+  private getScoreNameWhenAPlayerHasFourOrMorePoints() {
     const minusResult: number = this.firstPlayerScore - this.secondPlayerScore;
     if (minusResult === 1)
-      score = 'Advantage player1';
+      return 'Advantage player1';
     else if (minusResult === -1)
-      score = 'Advantage player2';
+      return 'Advantage player2';
     else if (minusResult >= 2)
-      score = 'Win for player1';
+      return 'Win for player1';
     else
-      score = 'Win for player2';
-    return score;
+      return 'Win for player2';
   }
 
   private getScoreNameWhenPlayersHaveSameScore() {
