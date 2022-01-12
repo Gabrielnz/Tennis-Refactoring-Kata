@@ -21,9 +21,7 @@ export class TennisGame1 implements TennisGame {
     }
     else {
       const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-      score += scoreNames[this.firstPlayerScore];
-      score += '-';
-      score += scoreNames[this.secondPlayerScore];
+      score += `${scoreNames[this.firstPlayerScore]}-${scoreNames[this.secondPlayerScore]}`;
     }
     return score;
   }
