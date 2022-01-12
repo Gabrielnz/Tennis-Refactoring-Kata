@@ -3,6 +3,7 @@ import { TennisGame } from './TennisGame';
 export class TennisGame1 implements TennisGame {
   private firstPlayerScore: number = 0;
   private secondPlayerScore: number = 0;
+  private scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
 
   wonPoint(playerName: string): void {
     if (playerName === 'player1')
@@ -20,8 +21,7 @@ export class TennisGame1 implements TennisGame {
       score = this.getScoreWhenAPlayerHasFourOrMorePoints();
     }
     else {
-      const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-      score += `${scoreNames[this.firstPlayerScore]}-${scoreNames[this.secondPlayerScore]}`;
+      score += `${this.scoreNames[this.firstPlayerScore]}-${this.scoreNames[this.secondPlayerScore]}`;
     }
     return score;
   }
