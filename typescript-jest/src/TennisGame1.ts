@@ -26,12 +26,14 @@ export class TennisGame1 implements TennisGame {
     const minusResult: number = this.firstPlayerScore - this.secondPlayerScore;
     if (minusResult === 1)
       return 'Advantage player1';
-    else if (minusResult === -1)
+
+    if (minusResult === -1)
       return 'Advantage player2';
-    else if (minusResult >= 2)
+
+    if (minusResult >= 2)
       return 'Win for player1';
-    
-      return 'Win for player2';
+
+    return 'Win for player2';
   }
 
   private getScoreWhenPlayersHaveSamePoints() {
