@@ -15,7 +15,7 @@ export class TennisGame1 implements TennisGame {
     let score: string = '';
     let tempScore: number = 0;
     if (this.playersScoresAreTheSame()) {
-      score = this.getScoreNameWhenPlayersHaveSameScore(score);
+      score = this.getScoreNameWhenPlayersHaveSameScore();
     }
     else if (this.isThereAnyPlayerWithFourOrMorePoints()) {
       const minusResult: number = this.firstPlayerScore - this.secondPlayerScore;
@@ -47,23 +47,22 @@ export class TennisGame1 implements TennisGame {
     return score;
   }
 
-  private getScoreNameWhenPlayersHaveSameScore(score: string) {
+  private getScoreNameWhenPlayersHaveSameScore() {
     switch (this.firstPlayerScore) {
       case 0:
-        score = 'Love-All';
+        return 'Love-All';
         break;
       case 1:
-        score = 'Fifteen-All';
+        return 'Fifteen-All';
         break;
       case 2:
-        score = 'Thirty-All';
+        return 'Thirty-All';
         break;
       default:
-        score = 'Deuce';
+        return 'Deuce';
         break;
 
     }
-    return score;
   }
 
   private isThereAnyPlayerWithFourOrMorePoints() {
