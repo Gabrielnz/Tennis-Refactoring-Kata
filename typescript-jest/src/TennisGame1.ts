@@ -13,7 +13,6 @@ export class TennisGame1 implements TennisGame {
 
   getScore(): string {
     let score: string = '';
-    let tempScore: number = 0;
     if (this.playersScoresAreTheSame()) {
       score = this.getScoreNameWhenPlayersHaveSameScore();
     }
@@ -25,6 +24,7 @@ export class TennisGame1 implements TennisGame {
       else score = 'Win for player2';
     }
     else {
+      let tempScore: number = 0;
       for (let i = 1; i < 3; i++) {
         if (i === 1) tempScore = this.firstPlayerScore;
         else { score += '-'; tempScore = this.secondPlayerScore; }
