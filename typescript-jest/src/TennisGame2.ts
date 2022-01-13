@@ -25,7 +25,7 @@ export class TennisGame2 implements TennisGame {
     if (this.playersHaveSamePoints() && this.firstPlayerHaveThreeOrMorePoints())
       score = 'Deuce';
 
-    if (this.player1Points > 0 && this.player2Points === 0) {
+    if (this.firstPlayerHasOneOrMorePoints() && this.player2Points === 0) {
       this.player1Result = this.scores[this.player1Points];
 
       this.player2Result = 'Love';
@@ -66,6 +66,10 @@ export class TennisGame2 implements TennisGame {
       score = `Win for ${this.player2Name}`;
     }
     return score;
+  }
+
+  private firstPlayerHasOneOrMorePoints() {
+    return this.player1Points > 0;
   }
 
   private firstPlayerHaveThreeOrMorePoints() {
