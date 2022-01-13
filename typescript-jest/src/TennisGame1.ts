@@ -1,13 +1,13 @@
 import { TennisGame } from './TennisGame';
 
 export class TennisGame1 implements TennisGame {
-  private firstPlayerScore: number = 0;
+  private firstPlayerPoints: number = 0;
   private secondPlayerScore: number = 0;
   private scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
 
   wonPoint(playerName: string): void {
     if (playerName === 'player1')
-      this.firstPlayerScore += 1;
+      this.firstPlayerPoints += 1;
     else
       this.secondPlayerScore += 1;
   }
@@ -19,11 +19,11 @@ export class TennisGame1 implements TennisGame {
     if (this.isThereAPlayerWithFourOrMorePoints()) {
       return this.getScoreWhenAPlayerHasFourOrMorePoints();
     }
-    return `${this.scoreNames[this.firstPlayerScore]}-${this.scoreNames[this.secondPlayerScore]}`;
+    return `${this.scoreNames[this.firstPlayerPoints]}-${this.scoreNames[this.secondPlayerScore]}`;
   }
 
   private getScoreWhenAPlayerHasFourOrMorePoints() {
-    const minusResult: number = this.firstPlayerScore - this.secondPlayerScore;
+    const minusResult: number = this.firstPlayerPoints - this.secondPlayerScore;
     if (minusResult === 1)
       return 'Advantage player1';
 
@@ -37,17 +37,17 @@ export class TennisGame1 implements TennisGame {
   }
 
   private getScoreWhenPlayersHaveSamePoints() {
-    if (this.firstPlayerScore <= 2) {
-      return `${this.scoreNames[this.firstPlayerScore]}-All`;
+    if (this.firstPlayerPoints <= 2) {
+      return `${this.scoreNames[this.firstPlayerPoints]}-All`;
     }
     return 'Deuce'
   }
 
   private isThereAPlayerWithFourOrMorePoints() {
-    return this.firstPlayerScore >= 4 || this.secondPlayerScore >= 4;
+    return this.firstPlayerPoints >= 4 || this.secondPlayerScore >= 4;
   }
 
   private playersPointsAreTheSame() {
-    return this.firstPlayerScore === this.secondPlayerScore;
+    return this.firstPlayerPoints === this.secondPlayerScore;
   }
 }
