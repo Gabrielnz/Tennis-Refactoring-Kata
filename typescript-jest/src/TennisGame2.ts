@@ -10,6 +10,8 @@ export class TennisGame2 implements TennisGame {
   private player1Name: string;
   private player2Name: string;
 
+  private scores = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+
   constructor(player1Name: string, player2Name: string) {
     this.player1Name = player1Name;
     this.player2Name = player2Name;
@@ -18,13 +20,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = '';
     if (this.P1point === this.P2point && this.P1point < 4) {
-      if (this.P1point === 0)
-        score = 'Love';
-      if (this.P1point === 1)
-        score = 'Fifteen';
-      if (this.P1point === 2)
-        score = 'Thirty';
-      score += '-All';
+      score = this.scores[this.P1point] + '-All';
     }
     if (this.P1point === this.P2point && this.P1point >= 3)
       score = 'Deuce';
