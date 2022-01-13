@@ -20,11 +20,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = '';
     if (this.playersHaveSamePoints()) {
-      if (this.firstPlayerHaveLessThanFourPoints())
-        score = this.scores[this.player1Points] + '-All';
-
-      if (this.firstPlayerHaveThreeOrMorePoints())
-        score = 'Deuce';
+      score = this.getScoreWhenPlayersHaveSamePoints(score);
     }
       
 
@@ -68,6 +64,15 @@ export class TennisGame2 implements TennisGame {
     if (this.player2Points >= 4 && this.player1Points >= 0 && (this.player2Points - this.player1Points) >= 2) {
       score = `Win for ${this.player2Name}`;
     }
+    return score;
+  }
+
+  private getScoreWhenPlayersHaveSamePoints(score: string) {
+    if (this.firstPlayerHaveLessThanFourPoints())
+      score = this.scores[this.player1Points] + '-All';
+
+    if (this.firstPlayerHaveThreeOrMorePoints())
+      score = 'Deuce';
     return score;
   }
 
