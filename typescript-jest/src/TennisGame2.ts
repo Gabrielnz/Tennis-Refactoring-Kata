@@ -4,8 +4,8 @@ export class TennisGame2 implements TennisGame {
   player1Points: number = 0;
   player2Points: number = 0;
 
-  P1res: string = '';
-  P2res: string = '';
+  player1Result: string = '';
+  player2Result: string = '';
 
   private player1Name: string;
   private player2Name: string;
@@ -26,29 +26,29 @@ export class TennisGame2 implements TennisGame {
       score = 'Deuce';
 
     if (this.player1Points > 0 && this.player2Points === 0) {
-      this.P1res = this.scores[this.player1Points];
+      this.player1Result = this.scores[this.player1Points];
 
-      this.P2res = 'Love';
-      score = this.P1res + '-' + this.P2res;
+      this.player2Result = 'Love';
+      score = this.player1Result + '-' + this.player2Result;
     }
     if (this.player2Points > 0 && this.player1Points === 0) {
-      this.P2res = this.scores[this.player2Points];
+      this.player2Result = this.scores[this.player2Points];
 
-      this.P1res = 'Love';
-      score = this.P1res + '-' + this.P2res;
+      this.player1Result = 'Love';
+      score = this.player1Result + '-' + this.player2Result;
     }
 
     if (this.player1Points > this.player2Points && this.player1Points < 4) {
-      this.P1res = this.scores[this.player1Points];
-      this.P2res = this.scores[this.player2Points];
+      this.player1Result = this.scores[this.player1Points];
+      this.player2Result = this.scores[this.player2Points];
 
-      score = this.P1res + '-' + this.P2res;
+      score = this.player1Result + '-' + this.player2Result;
     }
     if (this.player2Points > this.player1Points && this.player2Points < 4) {
-      this.P1res = this.scores[this.player1Points];
-      this.P2res = this.scores[this.player2Points];
+      this.player1Result = this.scores[this.player1Points];
+      this.player2Result = this.scores[this.player2Points];
 
-      score = this.P1res + '-' + this.P2res;
+      score = this.player1Result + '-' + this.player2Result;
     }
 
     if (this.player1Points > this.player2Points && this.player2Points >= 3) {
