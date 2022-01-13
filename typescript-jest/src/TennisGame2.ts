@@ -44,7 +44,7 @@ export class TennisGame2 implements TennisGame {
 
       score = this.player1Result + '-' + this.player2Result;
     }
-    if (this.player2Points > this.player1Points && this.player2Points < 4) {
+    if (this.secondPlayerHasMorePointsThanFirstPlayer() && this.player2Points < 4) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
 
@@ -66,6 +66,10 @@ export class TennisGame2 implements TennisGame {
       score = `Win for ${this.player2Name}`;
     }
     return score;
+  }
+
+  private secondPlayerHasMorePointsThanFirstPlayer() {
+    return this.player2Points > this.player1Points;
   }
 
   private firstPlayerHasMorePointsThanSecondPlayer() {
