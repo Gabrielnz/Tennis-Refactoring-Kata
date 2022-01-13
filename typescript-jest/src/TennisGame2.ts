@@ -22,7 +22,7 @@ export class TennisGame2 implements TennisGame {
     if (this.playersHaveSamePoints() && this.firstPlayerHaveLessThan4Points()) {
       score = this.scores[this.player1Points] + '-All';
     }
-    if (this.player1Points === this.player2Points && this.player1Points >= 3)
+    if (this.playersHaveSamePoints() && this.player1Points >= 3)
       score = 'Deuce';
 
     if (this.player1Points > 0 && this.player2Points === 0) {
