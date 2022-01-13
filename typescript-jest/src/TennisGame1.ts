@@ -3,7 +3,7 @@ import { TennisGame } from './TennisGame';
 export class TennisGame1 implements TennisGame {
   private firstPlayerPoints: number = 0;
   private secondPlayerPoints: number = 0;
-  private scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+  private scores: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
 
   wonPoint(playerName: string): void {
     if (playerName === 'player1')
@@ -19,7 +19,7 @@ export class TennisGame1 implements TennisGame {
     if (this.isThereAPlayerWithFourOrMorePoints()) {
       return this.getScoreWhenAPlayerHasFourOrMorePoints();
     }
-    return `${this.scoreNames[this.firstPlayerPoints]}-${this.scoreNames[this.secondPlayerPoints]}`;
+    return `${this.scores[this.firstPlayerPoints]}-${this.scores[this.secondPlayerPoints]}`;
   }
 
   private getScoreWhenAPlayerHasFourOrMorePoints() {
@@ -38,7 +38,7 @@ export class TennisGame1 implements TennisGame {
 
   private getScoreWhenPlayersHaveSamePoints() {
     if (this.firstPlayerPoints <= 2) {
-      return `${this.scoreNames[this.firstPlayerPoints]}-All`;
+      return `${this.scores[this.firstPlayerPoints]}-All`;
     }
     return 'Deuce'
   }
