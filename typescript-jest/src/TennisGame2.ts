@@ -55,7 +55,7 @@ export class TennisGame2 implements TennisGame {
       score = `Advantage ${this.player1Name}`;
     }
 
-    if (this.player2Points > this.player1Points && this.player1Points >= 3) {
+    if (this.secondPlayerHasMorePointsThanFirstPlayer() && this.player1Points >= 3) {
       score = `Advantage ${this.player2Name}`;
     }
 
