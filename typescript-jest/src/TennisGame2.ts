@@ -80,18 +80,18 @@ export class TennisGame2 implements TennisGame {
     return this.player1Points === this.player2Points;
   }
 
-  P1Score(): void {
+  addPointToFirstPlayer(): void {
     this.player1Points++;
   }
 
-  P2Score(): void {
+  addPointToSecondPlayer(): void {
     this.player2Points++;
   }
 
   wonPoint(player: string): void {
     if (player === this.player1Name)
-      this.P1Score();
+      this.addPointToFirstPlayer();
     else
-      this.P2Score();
+      this.addPointToSecondPlayer();
   }
 }
