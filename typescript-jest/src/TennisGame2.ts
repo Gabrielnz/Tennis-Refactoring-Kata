@@ -38,14 +38,12 @@ export class TennisGame2 implements TennisGame {
     if (this.firstPlayerHasMorePointsThanSecondPlayer() && this.firstPlayerHaveLessThanFourPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
-
       score = this.player1Result + '-' + this.player2Result;
     }
 
     if (this.secondPlayerHasMorePointsThanFirstPlayer() && this.secondPlayerHasLessThanFourPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
-
       score = this.player1Result + '-' + this.player2Result;
     }
 
