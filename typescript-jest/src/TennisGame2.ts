@@ -19,48 +19,49 @@ export class TennisGame2 implements TennisGame {
 
   getScore(): string {
     let score: string = '';
-    if (this.playersHaveSamePoints()) {
-      score = this.getScoreWhenPlayersHaveSamePoints();
+
+    if (this.firstPlayerWins()) {
+      return `Win for ${this.player1Name}`;
+    }
+
+    if (this.secondPlayerWins()) {
+      return `Win for ${this.player2Name}`;
+    }
+
+    if (this.firstPlayerHasAdvantage()) {
+      return `Advantage ${this.player1Name}`;
+    }
+
+    if (this.secondPlayerHasAdvantage()) {
+      return `Advantage ${this.player2Name}`;
     }
 
     if (this.firstPlayerHasOneOrMorePoints() && this.secondPlayerHasZeroPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
-      score = this.player1Result + '-' + this.player2Result;
+      return this.player1Result + '-' + this.player2Result;
     }
 
     if (this.secondPlayerHasOneOrMorePoints() && this.firstPlayerHasZeroPoints()) {
       this.player2Result = this.scores[this.player2Points];
       this.player1Result = this.scores[this.player1Points];
-      score = this.player1Result + '-' + this.player2Result;
+      return this.player1Result + '-' + this.player2Result;
     }
 
     if (this.firstPlayerHasMorePointsThanSecondPlayer() && this.firstPlayerHaveLessThanFourPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
-      score = this.player1Result + '-' + this.player2Result;
+      return this.player1Result + '-' + this.player2Result;
     }
 
     if (this.secondPlayerHasMorePointsThanFirstPlayer() && this.secondPlayerHasLessThanFourPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
-      score = this.player1Result + '-' + this.player2Result;
+      return this.player1Result + '-' + this.player2Result;
     }
-
-    if (this.firstPlayerHasAdvantage()) {
-      score = `Advantage ${this.player1Name}`;
-    }
-
-    if (this.secondPlayerHasAdvantage()) {
-      score = `Advantage ${this.player2Name}`;
-    }
-
-    if (this.firstPlayerWins()) {
-      score = `Win for ${this.player1Name}`;
-    }
-
-    if (this.secondPlayerWins()) {
-      score = `Win for ${this.player2Name}`;
+    
+    if (this.playersHaveSamePoints()) {
+      return this.getScoreWhenPlayersHaveSamePoints();
     }
 
     return score;
