@@ -61,10 +61,14 @@ export class TennisGame2 implements TennisGame {
     if (this.firstPlayerHasFourOrMorePoints() && this.secondPlayerHasZeroOrMorePoints() && this.firstPlayerHasTwoOrMorePointsOfAdvantage()) {
       score = `Win for ${this.player1Name}`;
     }
-    if (this.secondPlayerHasFourOrMorePoints() && this.firstPlayerHasZeroOrMorePoints() && (this.player2Points - this.player1Points) >= 2) {
+    if (this.secondPlayerHasFourOrMorePoints() && this.firstPlayerHasZeroOrMorePoints() && this.secondPlayerHasTwoOrMorePointsOfAdvantage()) {
       score = `Win for ${this.player2Name}`;
     }
     return score;
+  }
+
+  private secondPlayerHasTwoOrMorePointsOfAdvantage() {
+    return (this.player2Points - this.player1Points) >= 2;
   }
 
   private firstPlayerHasTwoOrMorePointsOfAdvantage() {
