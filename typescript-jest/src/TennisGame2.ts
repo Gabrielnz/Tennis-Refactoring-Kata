@@ -20,7 +20,7 @@ export class TennisGame2 implements TennisGame {
   getScore(): string {
     let score: string = '';
     if (this.playersHaveSamePoints()) {
-      score = this.getScoreWhenPlayersHaveSamePoints(score);
+      score = this.getScoreWhenPlayersHaveSamePoints();
     }
 
     if (this.firstPlayerHasOneOrMorePoints() && this.secondPlayerHasZeroPoints()) {
@@ -90,17 +90,10 @@ export class TennisGame2 implements TennisGame {
     return this.player1Points >= 4;
   }
 
-  private getScoreWhenPlayersHaveSamePoints(score: string): string {
+  private getScoreWhenPlayersHaveSamePoints(): string {
     if (this.firstPlayerHaveThreeOrMorePoints())
       return 'Deuce'
     return this.scores[this.player1Points] + '-All'
-    return this.firstPlayerHaveThreeOrMorePoints() ? 'Deuce' : this.scores[this.player1Points] + '-All'
-    if (this.firstPlayerHaveLessThanFourPoints())
-      score = this.scores[this.player1Points] + '-All';
-
-    if (this.firstPlayerHaveThreeOrMorePoints())
-      score = 'Deuce';
-    return score;
   }
 
   private secondPlayerHasThreeOrMorePoints() {
