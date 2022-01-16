@@ -90,7 +90,11 @@ export class TennisGame2 implements TennisGame {
     return this.player1Points >= 4;
   }
 
-  private getScoreWhenPlayersHaveSamePoints(score: string) {
+  private getScoreWhenPlayersHaveSamePoints(score: string): string {
+    if (this.firstPlayerHaveThreeOrMorePoints())
+      return 'Deuce'
+    return this.scores[this.player1Points] + '-All'
+    return this.firstPlayerHaveThreeOrMorePoints() ? 'Deuce' : this.scores[this.player1Points] + '-All'
     if (this.firstPlayerHaveLessThanFourPoints())
       score = this.scores[this.player1Points] + '-All';
 
