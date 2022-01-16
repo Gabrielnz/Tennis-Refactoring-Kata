@@ -25,14 +25,13 @@ export class TennisGame2 implements TennisGame {
 
     if (this.firstPlayerHasOneOrMorePoints() && this.secondPlayerHasZeroPoints()) {
       this.player1Result = this.scores[this.player1Points];
-
-      this.player2Result = 'Love';
+      this.player2Result = this.scores[this.player2Points];
       score = this.player1Result + '-' + this.player2Result;
     }
+
     if (this.secondPlayerHasOneOrMorePoints() && this.firstPlayerHasZeroPoints()) {
       this.player2Result = this.scores[this.player2Points];
-
-      this.player1Result = 'Love';
+      this.player1Result = this.scores[this.player1Points];
       score = this.player1Result + '-' + this.player2Result;
     }
 
@@ -42,6 +41,7 @@ export class TennisGame2 implements TennisGame {
 
       score = this.player1Result + '-' + this.player2Result;
     }
+
     if (this.secondPlayerHasMorePointsThanFirstPlayer() && this.secondPlayerHasLessThanFourPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
@@ -60,9 +60,11 @@ export class TennisGame2 implements TennisGame {
     if (this.firstPlayerWins()) {
       score = `Win for ${this.player1Name}`;
     }
+
     if (this.secondPlayerWins()) {
       score = `Win for ${this.player2Name}`;
     }
+
     return score;
   }
 
