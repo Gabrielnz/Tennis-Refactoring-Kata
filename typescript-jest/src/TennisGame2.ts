@@ -67,11 +67,11 @@ export class TennisGame2 implements TennisGame {
   }
 
   private secondPlayerWins() {
-    return this.secondPlayerHasFourOrMorePoints() && this.firstPlayerHasZeroOrMorePoints() && this.secondPlayerHasTwoOrMorePointsOfAdvantage();
+    return this.secondPlayerHasFourOrMorePoints() && this.secondPlayerHasTwoOrMorePointsOfAdvantage();
   }
 
   private firstPlayerWins() {
-    return this.firstPlayerHasFourOrMorePoints() && this.secondPlayerHasZeroOrMorePoints() && this.firstPlayerHasTwoOrMorePointsOfAdvantage();
+    return this.firstPlayerHasFourOrMorePoints() && this.firstPlayerHasTwoOrMorePointsOfAdvantage();
   }
 
   private secondPlayerHasAdvantage() {
@@ -90,16 +90,8 @@ export class TennisGame2 implements TennisGame {
     return (this.player1Points - this.player2Points) >= 2;
   }
 
-  private firstPlayerHasZeroOrMorePoints() {
-    return this.player1Points >= 0;
-  }
-
   private secondPlayerHasFourOrMorePoints() {
     return this.player2Points >= 4;
-  }
-
-  private secondPlayerHasZeroOrMorePoints() {
-    return this.player2Points >= 0;
   }
 
   private firstPlayerHasFourOrMorePoints() {
