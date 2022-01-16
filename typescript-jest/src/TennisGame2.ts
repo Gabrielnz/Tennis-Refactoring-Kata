@@ -22,7 +22,6 @@ export class TennisGame2 implements TennisGame {
     if (this.playersHaveSamePoints()) {
       score = this.getScoreWhenPlayersHaveSamePoints(score);
     }
-      
 
     if (this.firstPlayerHasOneOrMorePoints() && this.secondPlayerHasZeroPoints()) {
       this.player1Result = this.scores[this.player1Points];
