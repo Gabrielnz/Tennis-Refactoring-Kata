@@ -18,8 +18,6 @@ export class TennisGame2 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string = '';
-
     if (this.firstPlayerWins()) {
       return `Win for ${this.player1Name}`;
     }
@@ -40,31 +38,9 @@ export class TennisGame2 implements TennisGame {
       return this.getScoreWhenPlayersHaveSamePoints();
     }
 
-    if (this.firstPlayerHasOneOrMorePoints() && this.secondPlayerHasZeroPoints()) {
-      this.player1Result = this.scores[this.player1Points];
-      this.player2Result = this.scores[this.player2Points];
-      return this.player1Result + '-' + this.player2Result;
-    }
-
-    if (this.secondPlayerHasOneOrMorePoints() && this.firstPlayerHasZeroPoints()) {
-      this.player2Result = this.scores[this.player2Points];
-      this.player1Result = this.scores[this.player1Points];
-      return this.player1Result + '-' + this.player2Result;
-    }
-
-    if (this.firstPlayerHasMorePointsThanSecondPlayer() && this.firstPlayerHaveLessThanFourPoints()) {
-      this.player1Result = this.scores[this.player1Points];
-      this.player2Result = this.scores[this.player2Points];
-      return this.player1Result + '-' + this.player2Result;
-    }
-
-    if (this.secondPlayerHasMorePointsThanFirstPlayer() && this.secondPlayerHasLessThanFourPoints()) {
-      this.player1Result = this.scores[this.player1Points];
-      this.player2Result = this.scores[this.player2Points];
-      return this.player1Result + '-' + this.player2Result;
-    }
-
-    return score;
+    this.player1Result = this.scores[this.player1Points];
+    this.player2Result = this.scores[this.player2Points];
+    return this.player1Result + '-' + this.player2Result;
   }
 
   private secondPlayerWins() {
