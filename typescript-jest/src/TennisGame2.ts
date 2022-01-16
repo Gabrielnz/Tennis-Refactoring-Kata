@@ -36,6 +36,10 @@ export class TennisGame2 implements TennisGame {
       return `Advantage ${this.player2Name}`;
     }
 
+    if (this.playersHaveSamePoints()) {
+      return this.getScoreWhenPlayersHaveSamePoints();
+    }
+
     if (this.firstPlayerHasOneOrMorePoints() && this.secondPlayerHasZeroPoints()) {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
@@ -58,10 +62,6 @@ export class TennisGame2 implements TennisGame {
       this.player1Result = this.scores[this.player1Points];
       this.player2Result = this.scores[this.player2Points];
       return this.player1Result + '-' + this.player2Result;
-    }
-    
-    if (this.playersHaveSamePoints()) {
-      return this.getScoreWhenPlayersHaveSamePoints();
     }
 
     return score;
