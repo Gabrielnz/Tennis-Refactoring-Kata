@@ -13,7 +13,7 @@ export class TennisGame3 implements TennisGame {
 
   getScore(): string {
     let score: string;
-    if (this.bothPlayersHaveNotReachedFourPointsYet() && !(this.firstPlayerPoints + this.secondPlayerPoints === 6)) {
+    if (this.bothPlayersHaveNotReachedFourPointsYet() && this.totalPointsHaveNotReachedSixYet()) {
       const p: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
       score = p[this.firstPlayerPoints];
       return (this.firstPlayerPoints === this.secondPlayerPoints) ? score + '-All' : score + '-' + p[this.secondPlayerPoints];
@@ -23,6 +23,10 @@ export class TennisGame3 implements TennisGame {
       score = this.firstPlayerPoints > this.secondPlayerPoints ? this.firstPlayerName : this.secondPlayerName;
       return (((this.firstPlayerPoints - this.secondPlayerPoints) * (this.firstPlayerPoints - this.secondPlayerPoints)) === 1) ? 'Advantage ' + score : 'Win for ' + score;
     }
+  }
+
+  private totalPointsHaveNotReachedSixYet() {
+    return !(this.firstPlayerPoints + this.secondPlayerPoints === 6);
   }
 
   private bothPlayersHaveNotReachedFourPointsYet() {
