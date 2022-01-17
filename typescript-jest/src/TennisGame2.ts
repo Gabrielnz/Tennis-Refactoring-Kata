@@ -19,11 +19,11 @@ export class TennisGame2 implements TennisGame {
 
   getScore(): string {
     if (this.anyPlayerWins()) {
-      return `Win for ${this.getPlayerWithMostPoints()}`;
+      return `Win for ${this.getPlayerNameWithMostPoints()}`;
     }
 
     if (this.anyPlayerHasTheAdvantage()) {
-      return `Advantage ${this.getPlayerWithMostPoints()}`;
+      return `Advantage ${this.getPlayerNameWithMostPoints()}`;
     }
 
     if (this.playersHaveSamePoints()) {
@@ -106,7 +106,7 @@ export class TennisGame2 implements TennisGame {
     return this.player1Points === this.player2Points;
   }
 
-  private getPlayerWithMostPoints(): string {
+  private getPlayerNameWithMostPoints(): string {
     if (this.firstPlayerHasMorePointsThanSecondPlayer())
       return this.player1Name
     return this.player2Name
