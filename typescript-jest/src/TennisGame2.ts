@@ -22,12 +22,8 @@ export class TennisGame2 implements TennisGame {
       return `Win for ${this.getPlayerWithMostPoints()}`;
     }
 
-    if (this.firstPlayerHasAdvantage()) {
-      return `Advantage ${this.player1Name}`;
-    }
-
-    if (this.secondPlayerHasAdvantage()) {
-      return `Advantage ${this.player2Name}`;
+    if (this.firstPlayerHasAdvantage() || this.secondPlayerHasAdvantage()) {
+      return `Advantage ${this.getPlayerWithMostPoints()}`;
     }
 
     if (this.playersHaveSamePoints()) {
