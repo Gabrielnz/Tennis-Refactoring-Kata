@@ -38,6 +38,10 @@ export class TennisGame2 implements TennisGame {
       return this.getScoreWhenPlayersHaveSamePoints();
     }
 
+    return this.getPlayersScore();
+  }
+
+  private getPlayersScore() {
     this.player1Result = this.scores[this.player1Points];
     this.player2Result = this.scores[this.player2Points];
     return this.player1Result + '-' + this.player2Result;
