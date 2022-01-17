@@ -23,7 +23,7 @@ export class TennisGame3 implements TennisGame {
     if (this.playersHaveSamePoints())
       return 'Deuce';
 
-    if (this.aPlayerHasTheAdvantage()) {
+    if (this.anyPlayerHasTheAdvantage()) {
       return 'Advantage ' + this.getPlayerNameThatHasMorePoints();
     }
 
@@ -36,7 +36,7 @@ export class TennisGame3 implements TennisGame {
     return this.secondPlayerName;
   }
 
-  private aPlayerHasTheAdvantage() {
+  private anyPlayerHasTheAdvantage() {
     return ((this.firstPlayerPoints - this.secondPlayerPoints) * (this.firstPlayerPoints - this.secondPlayerPoints)) === 1;
   }
 
