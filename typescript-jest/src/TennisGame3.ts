@@ -24,17 +24,19 @@ export class TennisGame3 implements TennisGame {
     if (this.playersHaveSamePoints())
       return 'Deuce';
 
-    if (this.firstPlayerHasMorePointsThanSecondPlayer())
-      score = this.firstPlayerName;
-    else {
-      score = this.secondPlayerName;
-    }
+    const playerNameWithMorePoints = this.getPlayerNameThatHasMorePoints();
 
     if (this.aPlayerHasTheAdvantage()) {
-      return 'Advantage ' + score;
+      return 'Advantage ' + playerNameWithMorePoints;
     }
 
-    return 'Win for ' + score;
+    return 'Win for ' + playerNameWithMorePoints;
+  }
+
+  private getPlayerNameThatHasMorePoints(): string {
+    if (this.firstPlayerHasMorePointsThanSecondPlayer())
+      return this.firstPlayerName;
+    return this.secondPlayerName;
   }
 
   private aPlayerHasTheAdvantage() {
