@@ -23,7 +23,6 @@ export class TennisGame3 implements TennisGame {
     if (this.playersHaveSamePoints())
       return 'Deuce';
 
-
     if (this.aPlayerHasTheAdvantage()) {
       return 'Advantage ' + this.getPlayerNameThatHasMorePoints();
     }
