@@ -1,7 +1,7 @@
 import { TennisGame } from './TennisGame';
 
 export class TennisGame3 implements TennisGame {
-  private p2: number = 0;
+  private secondPlayerPoints: number = 0;
   private firstPlayerPoints: number = 0;
   private firstPlayerName: string;
   private secondPlayerName: string;
@@ -13,15 +13,15 @@ export class TennisGame3 implements TennisGame {
 
   getScore(): string {
     let s: string;
-    if (this.firstPlayerPoints < 4 && this.p2 < 4 && !(this.firstPlayerPoints + this.p2 === 6)) {
+    if (this.firstPlayerPoints < 4 && this.secondPlayerPoints < 4 && !(this.firstPlayerPoints + this.secondPlayerPoints === 6)) {
       const p: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
       s = p[this.firstPlayerPoints];
-      return (this.firstPlayerPoints === this.p2) ? s + '-All' : s + '-' + p[this.p2];
+      return (this.firstPlayerPoints === this.secondPlayerPoints) ? s + '-All' : s + '-' + p[this.secondPlayerPoints];
     } else {
-      if (this.firstPlayerPoints === this.p2)
+      if (this.firstPlayerPoints === this.secondPlayerPoints)
         return 'Deuce';
-      s = this.firstPlayerPoints > this.p2 ? this.firstPlayerName : this.secondPlayerName;
-      return (((this.firstPlayerPoints - this.p2) * (this.firstPlayerPoints - this.p2)) === 1) ? 'Advantage ' + s : 'Win for ' + s;
+      s = this.firstPlayerPoints > this.secondPlayerPoints ? this.firstPlayerName : this.secondPlayerName;
+      return (((this.firstPlayerPoints - this.secondPlayerPoints) * (this.firstPlayerPoints - this.secondPlayerPoints)) === 1) ? 'Advantage ' + s : 'Win for ' + s;
     }
   }
 
@@ -29,6 +29,6 @@ export class TennisGame3 implements TennisGame {
     if (playerName === 'player1')
       this.firstPlayerPoints += 1;
     else
-      this.p2 += 1;
+      this.secondPlayerPoints += 1;
   }
 }
