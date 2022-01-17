@@ -15,11 +15,10 @@ export class TennisGame3 implements TennisGame {
     let score: string;
     if (this.bothPlayersHaveNotReachedFourPointsYet() && this.totalPointsHaveNotReachedSixYet()) {
       const scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-      score = scoreNames[this.firstPlayerPoints];
       if (this.playersHaveSamePoints()) {
-        return score += '-All';
+        return scoreNames[this.firstPlayerPoints] + '-All';
       }
-      return score + '-' + scoreNames[this.secondPlayerPoints];
+      return scoreNames[this.firstPlayerPoints] + '-' + scoreNames[this.secondPlayerPoints];
     }
 
     if (this.playersHaveSamePoints())
