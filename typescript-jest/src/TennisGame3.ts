@@ -31,11 +31,15 @@ export class TennisGame3 implements TennisGame {
       score = this.secondPlayerName;
     }
 
-    if (((this.firstPlayerPoints - this.secondPlayerPoints) * (this.firstPlayerPoints - this.secondPlayerPoints)) === 1) {
+    if (this.aPlayerHasTheAdvantage()) {
       return 'Advantage ' + score;
     }
 
     return 'Win for ' + score;
+  }
+
+  private aPlayerHasTheAdvantage() {
+    return ((this.firstPlayerPoints - this.secondPlayerPoints) * (this.firstPlayerPoints - this.secondPlayerPoints)) === 1;
   }
 
   private firstPlayerHasMorePointsThanSecondPlayer() {
