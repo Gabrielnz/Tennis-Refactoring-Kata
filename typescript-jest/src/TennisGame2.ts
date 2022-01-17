@@ -22,7 +22,7 @@ export class TennisGame2 implements TennisGame {
       return `Win for ${this.getPlayerWithMostPoints()}`;
     }
 
-    if (this.firstPlayerHasAdvantage() || this.secondPlayerHasAdvantage()) {
+    if (this.anyPlayerHasTheAdvantage()) {
       return `Advantage ${this.getPlayerWithMostPoints()}`;
     }
 
@@ -31,6 +31,10 @@ export class TennisGame2 implements TennisGame {
     }
 
     return this.getPlayersScore();
+  }
+
+  private anyPlayerHasTheAdvantage() {
+    return this.firstPlayerHasAdvantage() || this.secondPlayerHasAdvantage();
   }
 
   private anyPlayerWins() {
