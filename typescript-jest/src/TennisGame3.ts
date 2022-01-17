@@ -26,7 +26,7 @@ export class TennisGame3 implements TennisGame {
       return 'Deuce';
 
     if (this.firstPlayerPoints > this.secondPlayerPoints)
-      score = this.firstPlayerName
+      score = this.firstPlayerName;
     else {
       score = this.secondPlayerName;
     }
