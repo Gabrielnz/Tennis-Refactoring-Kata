@@ -18,7 +18,7 @@ export class TennisGame2 implements TennisGame {
   }
 
   getScore(): string {
-    if (this.firstPlayerWins() || this.secondPlayerWins()) {
+    if (this.anyPlayerWins()) {
       return `Win for ${this.getPlayerWithMostPoints()}`;
     }
 
@@ -31,6 +31,10 @@ export class TennisGame2 implements TennisGame {
     }
 
     return this.getPlayersScore();
+  }
+
+  private anyPlayerWins() {
+    return this.firstPlayerWins() || this.secondPlayerWins();
   }
 
   private getPlayersScore() {
