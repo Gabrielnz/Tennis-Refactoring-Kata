@@ -16,13 +16,17 @@ export class TennisGame3 implements TennisGame {
     if (this.bothPlayersHaveNotReachedFourPointsYet() && this.totalPointsHaveNotReachedSixYet()) {
       const scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
       score = scoreNames[this.firstPlayerPoints];
-      return (this.firstPlayerPoints === this.secondPlayerPoints) ? score + '-All' : score + '-' + scoreNames[this.secondPlayerPoints];
+      return (this.playersHaveSamePoints()) ? score + '-All' : score + '-' + scoreNames[this.secondPlayerPoints];
     } else {
-      if (this.firstPlayerPoints === this.secondPlayerPoints)
+      if (this.playersHaveSamePoints())
         return 'Deuce';
       score = this.firstPlayerPoints > this.secondPlayerPoints ? this.firstPlayerName : this.secondPlayerName;
       return (((this.firstPlayerPoints - this.secondPlayerPoints) * (this.firstPlayerPoints - this.secondPlayerPoints)) === 1) ? 'Advantage ' + score : 'Win for ' + score;
     }
+  }
+
+  private playersHaveSamePoints() {
+    return this.firstPlayerPoints === this.secondPlayerPoints;
   }
 
   private totalPointsHaveNotReachedSixYet() {
