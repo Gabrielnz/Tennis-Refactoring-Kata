@@ -3,11 +3,11 @@ import { TennisGame } from './TennisGame';
 export class TennisGame3 implements TennisGame {
   private p2: number = 0;
   private p1: number = 0;
-  private p1N: string;
+  private firstPlayerName: string;
   private p2N: string;
 
   constructor(p1N: string, p2N: string) {
-    this.p1N = p1N;
+    this.firstPlayerName = p1N;
     this.p2N = p2N;
   }
 
@@ -20,7 +20,7 @@ export class TennisGame3 implements TennisGame {
     } else {
       if (this.p1 === this.p2)
         return 'Deuce';
-      s = this.p1 > this.p2 ? this.p1N : this.p2N;
+      s = this.p1 > this.p2 ? this.firstPlayerName : this.p2N;
       return (((this.p1 - this.p2) * (this.p1 - this.p2)) === 1) ? 'Advantage ' + s : 'Win for ' + s;
     }
   }
