@@ -12,7 +12,6 @@ export class TennisGame3 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string;
     if (this.bothPlayersHaveNotReachedFourPointsYet() && this.totalPointsHaveNotReachedSixYet()) {
       const scoreNames: string[] = ['Love', 'Fifteen', 'Thirty', 'Forty'];
       if (this.playersHaveSamePoints()) {
